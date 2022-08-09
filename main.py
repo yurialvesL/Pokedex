@@ -1,9 +1,6 @@
 import sys
-import requests
-import pypokedex
 from poke import *
-from PyQt5.QtWidgets import QMainWindow, QApplication, QMessageBox
-from Template.principal import *
+from PyQt5.QtWidgets import QApplication
 
 qt = QApplication(sys.argv)
 poke = Pokedex()

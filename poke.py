@@ -2,7 +2,6 @@ import os
 import requests
 import pypokedex
 from PyQt5.QtWidgets import QMainWindow, QMessageBox
-from PyQt5.QtGui import QIcon
 from Template.principal import *
 
 
@@ -10,6 +9,7 @@ class Pokedex(QMainWindow, Ui_MainWindow):
     def __init__(self, parent=None):
         super().__init__(parent)
         super().setupUi(self)
+        self.btn_search.clicked.connect(self.search_name)
 
     def pokeimg(self, id):
         if not os.path.exists('img/'+str(id)+'.png'):
@@ -83,7 +83,7 @@ class Pokedex(QMainWindow, Ui_MainWindow):
                     self.lbl_type1.setStyleSheet('background-color: rgba(81,196,231,255); padding-bottom:5px; '
                                                  'color:white; border-radius:30px;')
                 case 'ground':
-                    self.lbl_type1.setStyleSheet('background-color: background-color: qlineargradient(spread:pad, '
+                    self.lbl_type1.setStyleSheet('background-color: qlineargradient(spread:pad, '
                                                  'x1:0, y1:0, x2:0, y2:1, stop:0.477273 rgba(247, 222, 63, 255), '
                                                  'stop:0.488636 rgba(171, 152, 66, 255)); padding-bottom:5px; '
                                                  'color:white; border-radius:30px;')
@@ -311,3 +311,13 @@ class Pokedex(QMainWindow, Ui_MainWindow):
             error.setWindowTitle('Pokemon invalido')
             error.setStandardButtons(QMessageBox.Ok)
             error.exec()
+
+    def search_name(self):
+        self.poke_Type(self.lineEdit.text())
+        self.abilities_poke(self.lineEdit.text())
+        self.poke_description(self.lineEdit.text())
+
+
+    def next_anime(self):
+        pass
+
