@@ -36,7 +36,7 @@ class Ui_MainWindow(object):
         self.lbl_pokeimg.setGeometry(QtCore.QRect(10, 10, 481, 401))
         self.lbl_pokeimg.setStyleSheet("border:none")
         self.lbl_pokeimg.setText("")
-        self.lbl_pokeimg.setPixmap(QtGui.QPixmap("img/002.png"))
+        self.lbl_pokeimg.setPixmap(QtGui.QPixmap("../img/002.png"))
         self.lbl_pokeimg.setObjectName("lbl_pokeimg")
         self.frame_2 = QtWidgets.QFrame(self.centralwidget)
         self.frame_2.setGeometry(QtCore.QRect(30, 19, 501, 61))
@@ -52,14 +52,13 @@ class Ui_MainWindow(object):
         font.setFamily("Tahoma")
         font.setPointSize(20)
         font.setBold(True)
-        font.setWeight(75)
         self.label.setFont(font)
         self.label.setLayoutDirection(QtCore.Qt.RightToLeft)
         self.label.setStyleSheet("Border:none;")
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
         self.frame_4 = QtWidgets.QFrame(self.centralwidget)
-        self.frame_4.setGeometry(QtCore.QRect(30, 540, 501, 61))
+        self.frame_4.setGeometry(QtCore.QRect(30, 540, 501, 81))
         self.frame_4.setStyleSheet("Border-radius:15px;\n"
 "background-color: #9de1f6;\n"
 "border: 3px solid black;")
@@ -67,17 +66,26 @@ class Ui_MainWindow(object):
         self.frame_4.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_4.setObjectName("frame_4")
         self.lbl_id = QtWidgets.QLabel(self.frame_4)
-        self.lbl_id.setGeometry(QtCore.QRect(10, 14, 71, 31))
+        self.lbl_id.setGeometry(QtCore.QRect(10, 20, 101, 41))
         font = QtGui.QFont()
         font.setFamily("Yu Gothic UI Semibold")
-        font.setPointSize(20)
+        font.setPointSize(28)
         font.setBold(True)
-        font.setWeight(75)
         self.lbl_id.setFont(font)
         self.lbl_id.setStyleSheet("border:none;")
         self.lbl_id.setObjectName("lbl_id")
+        self.txtedt_desc = QtWidgets.QTextEdit(self.frame_4)
+        self.txtedt_desc.setGeometry(QtCore.QRect(130, 20, 361, 51))
+        font = QtGui.QFont()
+        font.setFamily("Yu Gothic UI Semibold")
+        font.setPointSize(10)
+        font.setBold(True)
+        self.txtedt_desc.setFont(font)
+        self.txtedt_desc.setStyleSheet("border:none;")
+        self.txtedt_desc.setReadOnly(True)
+        self.txtedt_desc.setObjectName("txtedt_desc")
         self.frame_5 = QtWidgets.QFrame(self.centralwidget)
-        self.frame_5.setGeometry(QtCore.QRect(30, 610, 501, 41))
+        self.frame_5.setGeometry(QtCore.QRect(30, 630, 501, 41))
         self.frame_5.setStyleSheet("Border-radius:15px;\n"
 "background-color: #9de1f6;\n"
 "border: 3px solid black;")
@@ -90,7 +98,6 @@ class Ui_MainWindow(object):
         font.setFamily("Yu Gothic UI Semibold")
         font.setPointSize(11)
         font.setBold(True)
-        font.setWeight(75)
         self.lineEdit.setFont(font)
         self.lineEdit.setStyleSheet("border:none;")
         self.lineEdit.setObjectName("lineEdit")
@@ -100,7 +107,6 @@ class Ui_MainWindow(object):
         font.setFamily("Yu Gothic UI Semibold")
         font.setPointSize(11)
         font.setBold(True)
-        font.setWeight(75)
         self.btn_search.setFont(font)
         self.btn_search.setStyleSheet("QPushButton{\n"
 "background-color: rgb(0, 0, 0);\n"
@@ -140,7 +146,6 @@ class Ui_MainWindow(object):
         font.setFamily("Yu Gothic UI Semibold")
         font.setPointSize(15)
         font.setBold(True)
-        font.setWeight(75)
         self.label_5.setFont(font)
         self.label_5.setStyleSheet("border:none;")
         self.label_5.setAlignment(QtCore.Qt.AlignCenter)
@@ -151,7 +156,6 @@ class Ui_MainWindow(object):
         font.setFamily("Segoe UI Black")
         font.setPointSize(12)
         font.setBold(True)
-        font.setWeight(75)
         self.lbl_type1.setFont(font)
         self.lbl_type1.setStyleSheet("background-color: rgb(0, 189, 0);\n"
 "color: rgb(255, 255, 255);\n"
@@ -164,7 +168,6 @@ class Ui_MainWindow(object):
         font.setFamily("Segoe UI Black")
         font.setPointSize(12)
         font.setBold(True)
-        font.setWeight(75)
         self.lbl_type2.setFont(font)
         self.lbl_type2.setStyleSheet("background-color: rgb(136, 68, 204);\n"
 "color: rgb(255, 255, 255);\n"
@@ -187,7 +190,6 @@ class Ui_MainWindow(object):
         font.setFamily("Yu Gothic UI Semibold")
         font.setPointSize(20)
         font.setBold(True)
-        font.setWeight(75)
         self.label_4.setFont(font)
         self.label_4.setStyleSheet("border:none;")
         self.label_4.setAlignment(QtCore.Qt.AlignCenter)
@@ -204,7 +206,6 @@ class Ui_MainWindow(object):
         font.setFamily("Yu Gothic UI Semibold")
         font.setPointSize(12)
         font.setBold(True)
-        font.setWeight(75)
         self.label_7.setFont(font)
         self.label_7.setStyleSheet("border:none;")
         self.label_7.setAlignment(QtCore.Qt.AlignCenter)
@@ -216,7 +217,6 @@ class Ui_MainWindow(object):
         font.setPointSize(16)
         font.setBold(True)
         font.setUnderline(False)
-        font.setWeight(75)
         font.setStrikeOut(False)
         self.lbl_abiliti.setFont(font)
         self.lbl_abiliti.setStyleSheet("border-bottom: 1px solid black;\n"
@@ -231,7 +231,6 @@ class Ui_MainWindow(object):
         font.setFamily("Yu Gothic UI Semibold")
         font.setPointSize(12)
         font.setBold(True)
-        font.setWeight(75)
         self.label_8.setFont(font)
         self.label_8.setStyleSheet("border:none;\n"
 "")
@@ -243,7 +242,6 @@ class Ui_MainWindow(object):
         font.setFamily("Yu Gothic UI Semibold")
         font.setPointSize(16)
         font.setBold(True)
-        font.setWeight(75)
         self.label_9.setFont(font)
         self.label_9.setStyleSheet("border:none;")
         self.label_9.setAlignment(QtCore.Qt.AlignCenter)
@@ -283,7 +281,6 @@ class Ui_MainWindow(object):
         font.setFamily("Yu Gothic UI Semibold")
         font.setPointSize(10)
         font.setBold(True)
-        font.setWeight(75)
         self.label_10.setFont(font)
         self.label_10.setStyleSheet("border:none")
         self.label_10.setObjectName("label_10")
@@ -293,7 +290,6 @@ class Ui_MainWindow(object):
         font.setFamily("Yu Gothic UI Semibold")
         font.setPointSize(10)
         font.setBold(True)
-        font.setWeight(75)
         self.lbl_hp_value.setFont(font)
         self.lbl_hp_value.setStyleSheet("border:none")
         self.lbl_hp_value.setObjectName("lbl_hp_value")
@@ -326,7 +322,6 @@ class Ui_MainWindow(object):
         font.setFamily("Yu Gothic UI Semibold")
         font.setPointSize(10)
         font.setBold(True)
-        font.setWeight(75)
         self.lbl_spdef.setFont(font)
         self.lbl_spdef.setStyleSheet("border:none;\n"
 "background-color: transparent;")
@@ -337,7 +332,6 @@ class Ui_MainWindow(object):
         font.setFamily("Yu Gothic UI Semibold")
         font.setPointSize(9)
         font.setBold(True)
-        font.setWeight(75)
         self.label_14.setFont(font)
         self.label_14.setStyleSheet("border:none;\n"
 "background-color:transparent;")
@@ -348,7 +342,6 @@ class Ui_MainWindow(object):
         font.setFamily("Yu Gothic UI Semibold")
         font.setPointSize(10)
         font.setBold(True)
-        font.setWeight(75)
         self.lbl_spd.setFont(font)
         self.lbl_spd.setStyleSheet("border:none;\n"
 "background-color: transparent;")
@@ -359,7 +352,6 @@ class Ui_MainWindow(object):
         font.setFamily("Yu Gothic UI Semibold")
         font.setPointSize(10)
         font.setBold(True)
-        font.setWeight(75)
         self.label_15.setFont(font)
         self.label_15.setStyleSheet("border:none;\n"
 "background-color:transparent;")
@@ -393,7 +385,6 @@ class Ui_MainWindow(object):
         font.setFamily("Yu Gothic UI Semibold")
         font.setPointSize(12)
         font.setBold(True)
-        font.setWeight(75)
         self.label_16.setFont(font)
         self.label_16.setStyleSheet("border:none;\n"
 "background-color:transparent;")
@@ -404,7 +395,6 @@ class Ui_MainWindow(object):
         font.setFamily("Yu Gothic UI Semibold")
         font.setPointSize(12)
         font.setBold(True)
-        font.setWeight(75)
         self.lbl_total_status.setFont(font)
         self.lbl_total_status.setStyleSheet("border:none;\n"
 "background-color:transparent;")
@@ -438,7 +428,6 @@ class Ui_MainWindow(object):
         font.setFamily("Yu Gothic UI Semibold")
         font.setPointSize(10)
         font.setBold(True)
-        font.setWeight(75)
         self.label_11.setFont(font)
         self.label_11.setStyleSheet("border:none;\n"
 "background-color:transparent;")
@@ -449,7 +438,6 @@ class Ui_MainWindow(object):
         font.setFamily("Yu Gothic UI Semibold")
         font.setPointSize(10)
         font.setBold(True)
-        font.setWeight(75)
         self.lbl_atk_value.setFont(font)
         self.lbl_atk_value.setStyleSheet("border:none;\n"
 "background-color: transparent;")
@@ -460,7 +448,6 @@ class Ui_MainWindow(object):
         font.setFamily("Yu Gothic UI Semibold")
         font.setPointSize(10)
         font.setBold(True)
-        font.setWeight(75)
         self.lbl_defense.setFont(font)
         self.lbl_defense.setStyleSheet("border:none;\n"
 "background-color: transparent;")
@@ -494,7 +481,6 @@ class Ui_MainWindow(object):
         font.setFamily("Yu Gothic UI Semibold")
         font.setPointSize(10)
         font.setBold(True)
-        font.setWeight(75)
         self.label_12.setFont(font)
         self.label_12.setStyleSheet("border:none;\n"
 "background-color:transparent;")
@@ -505,7 +491,6 @@ class Ui_MainWindow(object):
         font.setFamily("Yu Gothic UI Semibold")
         font.setPointSize(10)
         font.setBold(True)
-        font.setWeight(75)
         self.lbl_spatk.setFont(font)
         self.lbl_spatk.setStyleSheet("border:none;\n"
 "background-color: transparent;")
@@ -516,7 +501,6 @@ class Ui_MainWindow(object):
         font.setFamily("Yu Gothic UI Semibold")
         font.setPointSize(10)
         font.setBold(True)
-        font.setWeight(75)
         self.label_13.setFont(font)
         self.label_13.setStyleSheet("border:none;\n"
 "background-color:transparent;")
@@ -544,6 +528,63 @@ class Ui_MainWindow(object):
         self.Qpb_spatk.setTextDirection(QtWidgets.QProgressBar.TopToBottom)
         self.Qpb_spatk.setFormat("")
         self.Qpb_spatk.setObjectName("Qpb_spatk")
+        self.btn_last = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_last.setGeometry(QtCore.QRect(580, 660, 141, 71))
+        self.btn_last.setMinimumSize(QtCore.QSize(141, 71))
+        self.btn_last.setMaximumSize(QtCore.QSize(141, 71))
+        font = QtGui.QFont()
+        font.setFamily("Yu Gothic UI Semibold")
+        font.setPointSize(10)
+        font.setBold(True)
+        self.btn_last.setFont(font)
+        self.btn_last.setStyleSheet("QPushButton{\n"
+"background-image: url(C:/Users/Yuri/PycharmProject/Pokedex/img/left1.png);\n"
+"background-repeat:no-repeat;\n"
+"background-size:auto;\n"
+"border:none;\n"
+"color:white;\n"
+"text-align:right;\n"
+"padding-right:15px;\n"
+"}\n"
+"\n"
+"QPushButton:Hover{\n"
+"background-image: url(C:/Users/Yuri/PycharmProject/Pokedex/img/left2.png);\n"
+"background-repeat:no-repeat;\n"
+"background-size:auto;\n"
+"border:none;\n"
+"}")
+        self.btn_last.setDefault(False)
+        self.btn_last.setObjectName("btn_last")
+        self.btn_next = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_next.setGeometry(QtCore.QRect(740, 660, 141, 71))
+        self.btn_next.setMinimumSize(QtCore.QSize(141, 71))
+        self.btn_next.setMaximumSize(QtCore.QSize(141, 71))
+        font = QtGui.QFont()
+        font.setFamily("Yu Gothic UI Semibold")
+        font.setPointSize(10)
+        font.setBold(True)
+        self.btn_next.setFont(font)
+        self.btn_next.setStyleSheet("QPushButton{\n"
+"background-image: url(C:/Users/Yuri/PycharmProject/Pokedex/img/right1.png);\n"
+"background-repeat:no-repeat;\n"
+"background-size:auto;\n"
+"border:none;\n"
+"color:white;\n"
+"text-align:left;\n"
+"padding-left:38px;\n"
+"}\n"
+"\n"
+"QPushButton:Hover{\n"
+"background-image: url(C:/Users/Yuri/PycharmProject/Pokedex/img/right2.png);\n"
+"background-repeat:no-repeat;\n"
+"background-size:auto;\n"
+"border:none;\n"
+"text-align:left;\n"
+"padding-left:28px;\n"
+"\n"
+"\n"
+"}")
+        self.btn_next.setObjectName("btn_next")
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -554,6 +595,11 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "Pokédex"))
         self.label.setText(_translate("MainWindow", "Ivysaur"))
         self.lbl_id.setText(_translate("MainWindow", "#002"))
+        self.txtedt_desc.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'Yu Gothic UI Semibold\'; font-size:10pt; font-weight:700; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">A legendary bird POKÉMON that is said to appear from clouds while dropping enormous lightning bolts.</p></body></html>"))
         self.lineEdit.setPlaceholderText(_translate("MainWindow", "Search by name"))
         self.btn_search.setText(_translate("MainWindow", "Search"))
         self.label_5.setText(_translate("MainWindow", "Type"))
@@ -578,3 +624,5 @@ class Ui_MainWindow(object):
         self.label_12.setText(_translate("MainWindow", "Defense"))
         self.lbl_spatk.setText(_translate("MainWindow", "65"))
         self.label_13.setText(_translate("MainWindow", "Sp.Attack"))
+        self.btn_last.setText(_translate("MainWindow", "Previous"))
+        self.btn_next.setText(_translate("MainWindow", "Next"))

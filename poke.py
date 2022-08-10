@@ -10,16 +10,18 @@ class Pokedex(QMainWindow, Ui_MainWindow):
         super().__init__(parent)
         super().setupUi(self)
         self.btn_search.clicked.connect(self.search_name)
+        self.btn_next.clicked.connect(self.next_poke)
+        self.btn_last.clicked.connect(self.prev_poke)
 
     def pokeimg(self, id):
-        if not os.path.exists('img/'+str(id)+'.png'):
+        if not os.path.exists('img/' + str(id) + '.png'):
             if id < 10:
                 link = f'https://assets.pokemon.com/assets/cms2/img/pokedex/full/00{id}.png'
                 f = open(str(id) + ".png", "wb")
                 response = requests.get(link)
                 f.write(response.content)
                 f.close()
-                os.rename(str(id)+".png", 'img/'+str(id) + ".png")
+                os.rename(str(id) + ".png", 'img/' + str(id) + ".png")
             elif id > 9 and id < 100:
                 link = f'https://assets.pokemon.com/assets/cms2/img/pokedex/full/0{id}.png'
                 f = open(str(id) + ".png", "wb")
@@ -67,8 +69,8 @@ class Pokedex(QMainWindow, Ui_MainWindow):
                 case 'water':
                     self.lbl_type1.setStyleSheet('background-color: #4592c4; padding-bottom:5px; color:white; '
                                                  'border-radius:30px;')
-                case 'eletric':
-                    self.lbl_type1.setStyleSheet('background-color: rgba(238,213,53,255); padding-bottom:5px; '
+                case 'electric':
+                    self.lbl_type1.setStyleSheet('background-color: rgb(255,232,0); padding-bottom:5px; '
                                                  'color:white; border-radius:30px;')
                 case 'rock':
                     self.lbl_type1.setStyleSheet('background-color: rgba(163,140,33,255); padding-bottom:5px; '
@@ -120,7 +122,7 @@ class Pokedex(QMainWindow, Ui_MainWindow):
                     self.lbl_type1.setStyleSheet('background-color: #fd7d24; padding-bottom:5px; color:white; '
                                                  'border-radius:30px;')
                 case 'normal':
-                    self.lbl_type1.setStyleSheet('background-color: rgba(164,172,175,255); padding-bottom:5px; '
+                    self.lbl_type1.setStyleSheet('background-color: #ecac2c; padding-bottom:5px; '
                                                  'color:white; border-radius:30px;')
                 case 'fighting':
                     self.lbl_type1.setStyleSheet('background-color: #d46622; padding-bottom:5px; color:white; '
@@ -133,8 +135,8 @@ class Pokedex(QMainWindow, Ui_MainWindow):
                 case 'water':
                     self.lbl_type1.setStyleSheet('background-color: #4592c4; padding-bottom:5px; color:white; '
                                                  'border-radius:30px;')
-                case 'eletric':
-                    self.lbl_type1.setStyleSheet('background-color: rgba(238,213,53,255); padding-bottom:5px; '
+                case 'electric':
+                    self.lbl_type1.setStyleSheet('background-color: rgb(255,232,0); padding-bottom:5px; '
                                                  'color:white; border-radius:30px;')
                 case 'rock':
                     self.lbl_type1.setStyleSheet('background-color: rgba(163,140,33,255); padding-bottom:5px; '
@@ -149,7 +151,7 @@ class Pokedex(QMainWindow, Ui_MainWindow):
                     self.lbl_type1.setStyleSheet('background-color: rgba(81,196,231,255); padding-bottom:5px; '
                                                  'color:white; border-radius:30px;')
                 case 'ground':
-                    self.lbl_type1.setStyleSheet('background-color: background-color: qlineargradient(spread:pad, '
+                    self.lbl_type1.setStyleSheet('background-color: qlineargradient(spread:pad, '
                                                  'x1:0, y1:0, x2:0, y2:1, stop:0.477273 rgba(247, 222, 63, 255), '
                                                  'stop:0.488636 rgba(171, 152, 66, 255)); padding-bottom:5px; '
                                                  'color:white; border-radius:30px;')
@@ -190,15 +192,15 @@ class Pokedex(QMainWindow, Ui_MainWindow):
                     self.lbl_type2.setStyleSheet('background-color: #d46622; padding-bottom:5px; color:white; '
                                                  'border-radius:30px;')
                 case 'flying':
-                    self.lbl_type2.etStyleSheet('background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, '
-                                                'y2:1, stop:0.460227 rgba(60, 195, 235, 255), stop:0.471591 rgba('
-                                                '187, 188, 187, 255)); padding-bottom:5px; color:white; '
-                                                'border-radius:30px;')
+                    self.lbl_type2.setStyleSheet('background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, '
+                                                 'y2:1, stop:0.460227 rgba(60, 195, 235, 255), stop:0.471591 rgba('
+                                                 '187, 188, 187, 255)); padding-bottom:5px; color:white; '
+                                                 'border-radius:30px;')
                 case 'water':
                     self.lbl_type2.setStyleSheet('background-color: #4592c4; padding-bottom:5px; color:white; '
                                                  'border-radius:30px;')
-                case 'eletric':
-                    self.lbl_type2.setStyleSheet('background-color: rgba(238,213,53,255); padding-bottom:5px; '
+                case 'electric':
+                    self.lbl_type2.setStyleSheet('background-color: rgb(255,232,0); padding-bottom:5px; '
                                                  'color:white; border-radius:30px;')
                 case 'rock':
                     self.lbl_type2.setStyleSheet('background-color: rgba(163,140,33,255); padding-bottom:5px; '
@@ -261,7 +263,35 @@ class Pokedex(QMainWindow, Ui_MainWindow):
     def poke_description(self, pokemon):
         if isinstance(pokemon, int):
             p = pypokedex.get(dex=pokemon)
-            self.lbl_id.setText(str(p.dex))
+            self.lbl_id.setText(f'#{str(p.dex)}')
+            if p.dex > 0 and p.dex < 152:
+                desc = p.get_descriptions()['red']
+                desc = desc.replace('\n', " ")
+                self.txtedt_desc.setText(desc)
+            elif p.dex >= 152 and p.dex < 252:
+                desc = p.get_descriptions()['gold']
+                desc = desc.replace('\n', " ")
+                self.txtedt_desc.setText(desc)
+            elif p.dex >= 252 and p.dex < 387:
+                desc = p.get_descriptions()['ruby']
+                desc = desc.replace('\n', " ")
+                self.txtedt_desc.setText(desc)
+            elif p.dex >= 387 and p.dex < 494:
+                desc = p.get_descriptions()['diamond']
+                desc = desc.replace('\n', " ")
+                self.txtedt_desc.setText(desc)
+            elif p.dex >= 494 and p.dex < 650:
+                desc = p.get_descriptions()['black']
+                desc = desc.replace('\n', " ")
+                self.txtedt_desc.setText(desc)
+            elif p.dex >= 650 and p.dex < 899:
+                desc = p.get_descriptions()['sword']
+                desc = desc.replace('\n', " ")
+                self.txtedt_desc.setText(desc)
+            elif p.dex >= 899 and p.dex < 906:
+                desc = p.get_descriptions()['legends-arceus']
+                desc = desc.replace('\n', " ")
+                self.txtedt_desc.setText(desc)
             self.label.setText(p.name.title())
             self.lbl_hp_value.setText(str(p.base_stats.hp))
             self.Qpb_hp.setValue(p.base_stats.hp)
@@ -278,12 +308,40 @@ class Pokedex(QMainWindow, Ui_MainWindow):
             self.lbl_total_status.setText(str(p.base_stats.hp + p.base_stats.attack + p.base_stats.defense +
                                               p.base_stats.sp_atk + p.base_stats.sp_def + p.base_stats.speed))
             self.pokeimg(int(p.dex))
-            self.lbl_pokeimg.setGeometry(10,10,475,431)
+            self.lbl_pokeimg.setGeometry(10, 10, 475, 431)
             self.frame.adjustSize()
-            self.lbl_pokeimg.setPixmap(QtGui.QPixmap('img/'+str(p.dex)+'.png'))
+            self.lbl_pokeimg.setPixmap(QtGui.QPixmap('img/' + str(p.dex) + '.png'))
         elif isinstance(pokemon, str):
             p = pypokedex.get(name=f'{pokemon}')
-            self.lbl_id.setText(str(p.dex))
+            self.lbl_id.setText(f'#{str(p.dex)}')
+            if p.dex > 0 and p.dex < 152:
+                desc = p.get_descriptions()['red']
+                desc = desc.replace('\n', " ")
+                self.txtedt_desc.setText(desc)
+            elif p.dex >= 152 and p.dex <252:
+                desc = p.get_descriptions()['gold']
+                desc = desc.replace('\n', " ")
+                self.txtedt_desc.setText(desc)
+            elif p.dex >= 252 and p.dex < 387:
+                desc = p.get_descriptions()['ruby']
+                desc = desc.replace('\n', " ")
+                self.txtedt_desc.setText(desc)
+            elif p.dex >=387 and p.dex < 494:
+                desc = p.get_descriptions()['diamond']
+                desc = desc.replace('\n', " ")
+                self.txtedt_desc.setText(desc)
+            elif p.dex >=494 and p.dex < 650:
+                desc = p.get_descriptions()['black']
+                desc = desc.replace('\n', " ")
+                self.txtedt_desc.setText(desc)
+            elif p.dex >=650 and p.dex < 899:
+                desc = p.get_descriptions()['sword']
+                desc = desc.replace('\n', " ")
+                self.txtedt_desc.setText(desc)
+            elif p.dex >=899 and p.dex < 906:
+                desc = p.get_descriptions()['legends-arceus']
+                desc = desc.replace('\n', " ")
+                self.txtedt_desc.setText(desc)
             self.label.setText(p.name.title())
             self.lbl_hp_value.setText(str(p.base_stats.hp))
             self.Qpb_hp.setValue(p.base_stats.hp)
@@ -316,8 +374,14 @@ class Pokedex(QMainWindow, Ui_MainWindow):
         self.poke_Type(self.lineEdit.text())
         self.abilities_poke(self.lineEdit.text())
         self.poke_description(self.lineEdit.text())
+        self.lineEdit.setText('')
 
+    def next_poke(self):
+        self.poke_Type(str(int(self.lbl_id.text()[1:]) + 1))
+        self.abilities_poke(str(int(self.lbl_id.text()[1:]) + 1))
+        self.poke_description(str(int(self.lbl_id.text()[1:]) + 1))
 
-    def next_anime(self):
-        pass
-
+    def prev_poke(self):
+        self.poke_Type(str(int(self.lbl_id.text()[1:]) - 1))
+        self.abilities_poke(str(int(self.lbl_id.text()[1:]) - 1))
+        self.poke_description(str(int(self.lbl_id.text()[1:]) - 1))
