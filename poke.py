@@ -264,31 +264,31 @@ class Pokedex(QMainWindow, Ui_MainWindow):
         if isinstance(pokemon, int):
             p = pypokedex.get(dex=pokemon)
             self.lbl_id.setText(f'#{str(p.dex)}')
-            if p.dex > 0 and p.dex < 152:
+            if 0 < p.dex < 152:
                 desc = p.get_descriptions()['red']
                 desc = desc.replace('\n', " ")
                 self.txtedt_desc.setText(desc)
-            elif p.dex >= 152 and p.dex < 252:
+            elif 152 <= p.dex < 252:
                 desc = p.get_descriptions()['gold']
                 desc = desc.replace('\n', " ")
                 self.txtedt_desc.setText(desc)
-            elif p.dex >= 252 and p.dex < 387:
+            elif 252 <= p.dex < 387:
                 desc = p.get_descriptions()['ruby']
                 desc = desc.replace('\n', " ")
                 self.txtedt_desc.setText(desc)
-            elif p.dex >= 387 and p.dex < 494:
+            elif 387 <= p.dex < 494:
                 desc = p.get_descriptions()['diamond']
                 desc = desc.replace('\n', " ")
                 self.txtedt_desc.setText(desc)
-            elif p.dex >= 494 and p.dex < 650:
+            elif 494 <= p.dex < 650:
                 desc = p.get_descriptions()['black']
                 desc = desc.replace('\n', " ")
                 self.txtedt_desc.setText(desc)
-            elif p.dex >= 650 and p.dex < 899:
+            elif 650 <= p.dex < 899:
                 desc = p.get_descriptions()['sword']
                 desc = desc.replace('\n', " ")
                 self.txtedt_desc.setText(desc)
-            elif p.dex >= 899 and p.dex < 906:
+            elif 899 <= p.dex < 906:
                 desc = p.get_descriptions()['legends-arceus']
                 desc = desc.replace('\n', " ")
                 self.txtedt_desc.setText(desc)
@@ -314,31 +314,31 @@ class Pokedex(QMainWindow, Ui_MainWindow):
         elif isinstance(pokemon, str):
             p = pypokedex.get(name=f'{pokemon}')
             self.lbl_id.setText(f'#{str(p.dex)}')
-            if p.dex > 0 and p.dex < 152:
+            if 0 < p.dex < 152:
                 desc = p.get_descriptions()['red']
                 desc = desc.replace('\n', " ")
                 self.txtedt_desc.setText(desc)
-            elif p.dex >= 152 and p.dex <252:
+            elif 152 <= p.dex < 252:
                 desc = p.get_descriptions()['gold']
                 desc = desc.replace('\n', " ")
                 self.txtedt_desc.setText(desc)
-            elif p.dex >= 252 and p.dex < 387:
+            elif 252 <= p.dex < 387:
                 desc = p.get_descriptions()['ruby']
                 desc = desc.replace('\n', " ")
                 self.txtedt_desc.setText(desc)
-            elif p.dex >=387 and p.dex < 494:
+            elif 387 <= p.dex < 494:
                 desc = p.get_descriptions()['diamond']
                 desc = desc.replace('\n', " ")
                 self.txtedt_desc.setText(desc)
-            elif p.dex >=494 and p.dex < 650:
+            elif 494 <= p.dex < 650:
                 desc = p.get_descriptions()['black']
                 desc = desc.replace('\n', " ")
                 self.txtedt_desc.setText(desc)
-            elif p.dex >=650 and p.dex < 899:
+            elif 650 <= p.dex < 899:
                 desc = p.get_descriptions()['sword']
                 desc = desc.replace('\n', " ")
                 self.txtedt_desc.setText(desc)
-            elif p.dex >=899 and p.dex < 906:
+            elif 899 <= p.dex < 906:
                 desc = p.get_descriptions()['legends-arceus']
                 desc = desc.replace('\n', " ")
                 self.txtedt_desc.setText(desc)
