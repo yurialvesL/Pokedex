@@ -2,7 +2,7 @@
 <h1>Pokedex</h1>
 <p>This project is a Pokedex in Python, until Pyqt5 Framework and PyPokedex library<p>
 <img src='https://user-images.githubusercontent.com/63125514/183988568-a0c4bd65-568d-4daa-8b17-4c080564ad39.gif'>
-<p>In the gif above the Pokedex is shown showing the following data:<p/>
+<p>In the gif above is shown the Pokedex showing the following data:<p/>
 <ul>
   <li>Name</li>
   <li>Number in Pokedex order</li> 
